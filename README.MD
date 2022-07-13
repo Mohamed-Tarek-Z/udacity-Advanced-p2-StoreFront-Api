@@ -3,16 +3,21 @@ you need a POSTGRESQL database to be installed.
 with the default database named = postgres, user = postgres and password = 123
 
 
-### setup
+### setup for Dev
 1. `npm install` to install all required npm modules.
 
 2. `npm run CreateDB` To create the dev database.(there is alike command for test but the test command is using it so don't run it twice.)
 
-3. `npm run test` to run tests.this command will create test database, run the migrate up, build the server, run jasmine and will drop the testDB. 
+3. `db-migrate up` to run all the migrations. 
 
 4. `npm run build` to build the server.
 
 5. `npm run start` to run the server.
+
+### setup for testing 
+1. `npm install` to install all required npm modules. (if not run before).
+
+2. `npm run test` to do the reset.
 
 ### Ports
 the database and the server are running on http://localhost: port
