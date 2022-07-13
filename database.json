@@ -29,7 +29,7 @@
             "ENV": "POSTGRES_PASSWORD"
         }
     },
-    "default":{
+    "def":{
         "driver": "pg",
         "host": {
             "ENV": "POSTGRES_HOST"

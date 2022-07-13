@@ -4,20 +4,20 @@
   "main": "server.ts",
   "scripts": {
     "build": "npx tsc",
-    "start": "SET ENV=dev && node ./dist/src/server.js",
+    "start": "node ./dist/src/server.js",
 
-    "CreateDB": "db-migrate --env default db:create store_front",
-    "DropDB": "db-migrate --env default db:drop store_front",
-    "dev_up": "db-migrate --env dev up",
-    "dev_down": "db-migrate --env dev reset",
+    "CreateDB": "db-migrate -e def db:create store_front",
+    "DropDB": "db-migrate -e def db:drop store_front",
+    "dev_up": "db-migrate -e dev up",
+    "dev_down": "db-migrate -e dev reset",
 
-    "CreateDBT": "db-migrate --env default db:create store_front_test",
-    "DropDBT": "db-migrate --env default db:drop store_front_test",
-    "test_up": "db-migrate --env test up",
-    "test_down": "db-migrate --env test reset",
-    "test": "SET ENV=test&& npm run CreateDBT && npm run test_up && npm run build && jasmine && npm run DropDBT",
+    "CreateDBT": "db-migrate -e def db:create store_front_test",
+    "DropDBT": "db-migrate -e def db:drop store_front_test",
+    "test_up": "db-migrate -e test up",
+    "test_down": "db-migrate -e test reset",
+    "test": "SET ENV=test&& npm run DropDBT && npm run CreateDBT && npm run test_up && npm run build && jasmine && npm run DropDBT",
 
-    "watch": "SET ENV=test && tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
+    "watch": "npm run DropDB && npm run CreateDB && npm run dev_up && tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
     "lint": "prettier --config .prettierrc.json src/**/*.* --write && eslint . --ext .ts"
   },
   "dependencies": {
