@@ -13,5 +13,36 @@
         "password": {
             "ENV": "POSTGRES_PASSWORD"
         }
+    },
+    "test":{
+        "driver": "pg",
+        "host": {
+            "ENV": "POSTGRES_HOST"
+        },
+        "database": {
+            "ENV": "TEST_DB"
+        },
+        "user": {
+            "ENV": "POSTGRES_USER"
+        },
+        "password": {
+            "ENV": "POSTGRES_PASSWORD"
+        }
+    },
+    "default":{
+        "driver": "pg",
+        "host": {
+            "ENV": "POSTGRES_HOST"
+        },
+        "database": {
+            "ENV": "postgres"
+        },
+        "user": {
+            "ENV": "POSTGRES_USER"
+        },
+        "password": {
+            "ENV": "POSTGRES_PASSWORD"
+        }
     }
+
 }

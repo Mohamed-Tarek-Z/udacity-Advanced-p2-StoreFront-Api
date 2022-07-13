@@ -99,7 +99,7 @@ describe('Test order endpoints', () => {
     });
 
     it('delete order by id', async () => {
-        const res = await req.delete(`/orders/${order.id}`);
+        const res = await req.delete(`/orders/${order.id}`).set('Authorization', `Bearer ${token}`);
 
         expect(res.status).toBe(200);
         expect(res.headers['content-type']).toMatch('application/json');

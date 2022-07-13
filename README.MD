@@ -1,21 +1,14 @@
 ### Note 
 you need a POSTGRESQL database to be installed.
-with the default user = postgres and password = 123
+with the default database named = postgres, user = postgres and password = 123
 
 
 ### setup
 1. `npm install` to install all required npm modules.
 
-2. (very important)
-if postgressql and db-migrate module installed successfully.
-then open `.env` file and and put hash symbol ` # ` before the first line. 
-the run this command `npm run CDB`.
-then after running successfully you should see this line in console '[INFO] Created database "store_front"'.
-then remove the hash symbol agine from the .env file
+2. `npm run CreateDB` To create the dev database.(there is alike command for test but the test command is using it so don't run it twice.)
 
-or just create database called "store_front" your self and ignore this step. ^_^!
-
-3. run `npm run test` to run tests.
+3. `npm run test` to run tests.this command will create test database, run the migrate up, build the server, run jasmine and will drop the testDB. 
 
 4. `npm run build` to build the server.
 
@@ -29,23 +22,8 @@ the server is running on port 3000 can be changed from .env file.
 the database is running on the default port 5432.
 
 ### To remove tables
-1. `db-migrate reset` run this command to remove all tables from the named database in the .env file.
+1. `npm run dev_down` run this command to remove all tables from dev database (if wanted to) you can drop directly.
+   `npm run test_down` run this command to remove all tables from Test database (if wanted to) you can drop directly.
 
-
-2. (very important)
-open `.env` file and and put hash symbol ` # ` before the first line. 
-the run this command `npm run DDB`.
-then after running successfully you should see this line in console '[INFO] Deleted database "store_front"'.
-then remove the hash symbol again from the .env file
-
-or just Drop the database called "store_front" your self and ignore this step. ^_^!
-
-
-
-### note
-step 2 in setup and in remove in other words 
-( just comment the database name in .env file and run the create or drop command then uncomment it again)
-
-i think it is a problem with db-migrate where it is trying to connect to the named database in the config.json file.
-even if you were using "db:create or db:drop" command that should create or drop the database !!
-So to fix that i remove the name from the json file so it uses the default name.
+2. `npm run DropDB` To Drop the dev database.
+   `npm run DropDBT` To Drop the test database.
