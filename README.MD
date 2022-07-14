@@ -1,6 +1,19 @@
 ### Note 
 you need a POSTGRESQL database to be installed.
-with the default database named = postgres, user = postgres and password = 123
+with the default database named = postgres, user = postgres and password = 123.
+create file called `.env` in the root of the project.
+
+### `.env` file content
+
+POSTGRES_DB=store_front
+PORT=3000
+POSTGRES_HOST=127.0.0.1
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=123
+SALT_ROUNDS=10
+BCRYPT_PASSWORD=mohamed
+TOKEN_SECRET=tarek
+TEST_DB=store_front_test
 
 
 ### setup for Dev
